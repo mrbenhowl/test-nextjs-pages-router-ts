@@ -12,8 +12,8 @@ export default function Home () {
       </Head>
       <main>
         <div>
-          <Nav>Transactions</Nav>
-          <Nav>Settings</Nav>
+          <Nav path='/transactions'>Transactions</Nav>
+          <Nav path='/settings'>Settings</Nav>
         </div>
       </main>
     </>
