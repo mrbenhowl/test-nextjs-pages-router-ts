@@ -1,6 +1,7 @@
 Goals
 
-[] unit test SSR page
+[] Add SSR page
+[] unit test SSR page with some of mocking
 [/] integrate vanilla-extract (global)
 [/] integrate vanilla-extract (component)
 [] unit test with vanilla-extract
