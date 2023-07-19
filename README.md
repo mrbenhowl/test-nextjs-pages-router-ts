@@ -28,3 +28,7 @@ Folder mocks
   stubs
     sampleStub.json
   imposters.ejs
+
+
+jest
+pnpm add -D @testing-library/react jest

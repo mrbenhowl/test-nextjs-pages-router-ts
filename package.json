@@ -10,21 +10,23 @@
     "mock": "mb --configfile mocks/imposters.ejs --loglevel debug"
   },
   "dependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.10",
-    "next": "13.4.10",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.1.6",
     "@vanilla-extract/babel-plugin": "^1.2.0",
     "@vanilla-extract/css": "^1.12.0",
     "@vanilla-extract/next-plugin": "^2.1.3",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
-    "css-loader": "^6.8.1",    
+    "css-loader": "^6.8.1",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "jest": "^29.6.1",
     "mini-css-extract-plugin": "^2.7.6",
-    "mountebank": "^2.8.2"
+    "mountebank": "^2.8.2",
+    "next": "13.4.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.1.6"
   }
 }
