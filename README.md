@@ -12,3 +12,19 @@ Goals
 [] add playwright for e2e
 [] add code coverage report
 [] auth / rerouting if not logged-in
+
+
+
+vanilla-extract
+pnpm add -D @vanilla-extract/babel-plugin @vanilla-extract/css @vanilla-extract/next-plugin @vanilla-extract/webpack-plugin 
+
+mountebank
+pnpm add -D mountebank
+Add mock command to package.json
+  - "mock": "mb --configfile mocks/imposters.ejs --loglevel debug"
+Folder mocks
+  imposters
+    sampleImposter.ejs
+  stubs
+    sampleStub.json
+  imposters.ejs
