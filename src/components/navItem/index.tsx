@@ -7,5 +7,9 @@ type Props = {
 }
 
 export default function Nav ({ children, path }: Props) {
-  return <div className={root}><Link href={path}>{children}</Link></div>
+  return (
+    <div className={root}>
+      <Link href={path}>{children}</Link>
+    </div>
+  )
 }

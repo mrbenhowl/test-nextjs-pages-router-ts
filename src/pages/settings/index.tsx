@@ -1,7 +1,14 @@
+import Head from 'next/head'
+
 export default function Settings () {
   return (
-    <main>
-      <div>Settings</div>
-    </main>
+    <>
+      <Head>
+        <title>Settings</title>
+      </Head>
+      <main>
+        <div>Settings</div>
+      </main>
+    </>
   )
 }

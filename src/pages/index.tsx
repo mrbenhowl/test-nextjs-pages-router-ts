@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import Nav from '@/components/navItem'
+import Layout from '@/components/layout'
+import type { NextPageWithLayout } from './_app'
+import { ReactElement } from 'react'
 
-export default function Home () {
+const Page: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -10,12 +12,12 @@ export default function Home () {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <div>
-          <Nav path='/transactions'>Transactions</Nav>
-          <Nav path='/settings'>Settings</Nav>
-        </div>
-      </main>
     </>
   )
 }
+
+Page.getLayout = function getLayout (page: ReactElement) {
+  return <Layout>{page}</Layout>
+}
+
+export default Page
