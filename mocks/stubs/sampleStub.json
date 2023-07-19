@@ -1,0 +1,58 @@
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "/transactions"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "description": "IGA",
+            "amount": 10.01
+          },
+          {
+            "description": "IGA",
+            "amount": 11.01
+          },
+          {
+            "description": "IGA",
+            "amount": 13.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          },
+          {
+            "description": "IGA",
+            "amount": 16.01
+          }
+        ]
+      }
+    }
+  ]
+}
