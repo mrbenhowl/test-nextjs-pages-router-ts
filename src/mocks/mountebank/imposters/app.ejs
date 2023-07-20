@@ -1,0 +1,28 @@
+{
+  "port": 4545,
+  "protocol": "http",
+  "name": "sample stub",
+  "recordRequests": true,
+  "allowCORS": true,
+  "defaultResponse": {
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Headers": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With",
+      "Access-Control-Allow-Methods": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS",
+      "Access-Control-Allow-Origin": "*"
+    }
+  },
+  "stubs": [
+      <% include ../stubs/transactions.json %>,
+      <% include ../stubs/transactionsId1.json %>,
+      <% include ../stubs/transactionsId2.json %>,
+      <% include ../stubs/transactionsId3.json %>,
+      <% include ../stubs/transactionsId4.json %>,
+      <% include ../stubs/transactionsId5.json %>,
+      <% include ../stubs/transactionsId6.json %>,
+      <% include ../stubs/transactionsId7.json %>,
+      <% include ../stubs/transactionsId8.json %>,
+      <% include ../stubs/transactionsId9.json %>,
+      <% include ../stubs/transactionsIdDefault.json %>
+  ]
+ }

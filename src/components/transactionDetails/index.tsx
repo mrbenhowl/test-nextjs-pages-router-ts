@@ -1,18 +1,14 @@
-import fetcher from '@/lib/fetcher'
-import useSWR from 'swr'
+import useTransaction from '@/hooks/useTransaction'
 
 type Props = {
   transactionId: number
 }
 
 export default function TransactionDetail ({ transactionId }: Props) {
-  const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/transactions/${transactionId}`,
-    fetcher
-  )
+  const { data, isLoading, error } = useTransaction(transactionId)
 
   if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <section>

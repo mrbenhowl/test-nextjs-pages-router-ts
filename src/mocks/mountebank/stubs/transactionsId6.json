@@ -1,0 +1,24 @@
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "/transactions/6"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "body": {
+          "id": 6,
+          "address": "100 Collins Street 2",
+          "amount": 18.01,
+          "merchant": "Woolworths Ltd",
+          "timeOfTransaction": "10:00"
+        }
+      }
+    }
+  ]
+}

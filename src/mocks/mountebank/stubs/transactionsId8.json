@@ -1,0 +1,24 @@
+{
+  "predicates": [
+    {
+      "equals": {
+        "method": "GET",
+        "path": "/transactions/8"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "is": {
+        "statusCode": 200,
+        "body": {
+          "id": 8,
+          "address": "1 Jones Street",
+          "amount": 20.01,
+          "merchant": "Coles Ltd",
+          "timeOfTransaction": "10:10"
+        }
+      }
+    }
+  ]
+}
