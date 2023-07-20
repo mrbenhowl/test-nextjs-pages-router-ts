@@ -4,7 +4,8 @@ import { style } from '@vanilla-extract/css'
 export const layout = style({
   display: 'grid',
   gridTemplateColumns: '2fr 1fr',
-  gridTemplateRows: '1fr 1fr 1fr'
+  gridTemplateRows: '1fr 1fr',
+  gap: '20px 20px'
 })
 
 export const transaction = style({
@@ -12,5 +13,4 @@ export const transaction = style({
     color: vars.color.onBackgroundHoverColor
   },
   cursor: 'pointer'
-  
 })

@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mock": "mb --configfile src/mocks/e2e/imposters.ejs --loglevel debug"
+    "mock:mountebank": "mb --configfile src/mocks/mountebank/imposters.ejs --loglevel debug",
+    "mock:mockoon": "mockoon-cli start --data src/mocks/mockoon/mock-data.json --port 4001 --daemon-off"  
   },
   "dependencies": {
+    "@mockoon/cli": "^3.1.0",
     "@testing-library/react": "^14.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
@@ -27,6 +29,7 @@
     "next": "13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "swr": "^2.2.0",
     "typescript": "5.1.6"
   }
 }

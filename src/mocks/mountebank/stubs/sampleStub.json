@@ -17,7 +17,7 @@
         "body": [
           {
             "id": 1,
-            "description": "Woolworths",
+            "description": "Big W",
             "amount": 10.01
           },
           {
@@ -38,27 +38,27 @@
           {
             "id": 5,
             "description": "Woolworths",
-            "amount": 16.01
+            "amount": 17.01
           },
           {
             "id": 6,
             "description": "Woolworths",
-            "amount": 16.01
+            "amount": 18.01
           },
           {
             "id": 7,
             "description": "Coles",
-            "amount": 16.01
+            "amount": 19.01
           },
           {
             "id": 8,
             "description": "Coles",
-            "amount": 16.01
+            "amount": 20.01
           },
           {
             "id": 9,
             "description": "Coles",
-            "amount": 16.01
+            "amount": 21.01
           }
         ]
       }

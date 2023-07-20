@@ -1,9 +1,10 @@
 import type { NextPageWithLayout } from '../_app'
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import Head from 'next/head'
 import Layout from '@/components/layout'
 import Anchor from '@/components/anchor'
 import * as styles from './transactions.css'
+import TransactionDetail from '@/components/transactionDetails'
 
 type Props = {
   transactions: Transaction[]
@@ -16,6 +17,8 @@ interface Transaction {
 }
 
 const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
+  const [transactionId, setTransactionId] = useState(null)
+
   return (
     <>
       <Head>
@@ -31,10 +34,9 @@ const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
             {transactions.map((transaction: any) => {
               return (
                 <div
-                  data-id={transaction.id}
                   key={transaction.id}
                   onClick={() => {
-                    console.log('get transaction')
+                    setTransactionId(transaction.id)
                   }}
                   className={styles.transaction}
                 >
@@ -44,8 +46,9 @@ const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
             })}
           </div>
           <div>
-            <h2>Transaction</h2>
-            <div></div>
+            {transactionId && (
+              <TransactionDetail transactionId={transactionId} />
+            )}
           </div>
           <Anchor href='/'>Go back to the root</Anchor>
         </section>
@@ -63,7 +66,9 @@ export default Transactions
 export async function getServerSideProps (): Promise<{
   props: { transactions: Transaction[] }
 }> {
-  const res = await fetch(`http://localhost:4545/transactions`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/transactions`
+  )
   const transactions = await res.json()
 
   // Pass data to the page via props

@@ -12,6 +12,7 @@ Goals
 - [ ] add playwright for e2e
 - [ ] add code coverage report
 - [ ] auth / rerouting if not logged-in
+- [ ] play with mockoon
 
 
 # Steps
@@ -30,6 +31,11 @@ Goals
     sampleStub.json
   imposters.ejs
 
+## Mockoon 
+- Download desktop app https://mockoon.com/
+- https://mockoon.com/docs/latest/cors/#automatic-handling-of-cors-preflight-requests
+- https://mockoon.com/docs/latest/cors/#add-cors-headers-to-the-environment-headers
+- https://mockoon.com/tutorials/run-mock-api-anywhere-cli/
 
 ## jest
 - pnpm add -D @testing-library/react jest

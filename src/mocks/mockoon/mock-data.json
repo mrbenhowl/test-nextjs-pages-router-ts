@@ -1,0 +1,372 @@
+{
+  "uuid": "c05cd8aa-87e9-4561-a2da-0f7168de5234",
+  "lastMigration": 27,
+  "name": "Banking",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 4002,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "9cddd7a3-2e91-4212-b24a-7588558888cf",
+      "name": "transactions",
+      "collapsed": false,
+      "children": [
+        {
+          "type": "route",
+          "uuid": "6a2e78e4-9515-4795-9edb-e35eba478e0f"
+        },
+        {
+          "type": "route",
+          "uuid": "4b854ace-642b-408f-b94d-cc5b41de9e36"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "6a2e78e4-9515-4795-9edb-e35eba478e0f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "transactions",
+      "responses": [
+        {
+          "uuid": "cefaaa58-17f7-4543-aa7a-2f2770185cf6",
+          "body": "[\n  {\n    \"id\": 1,\n    \"description\": \"Big W\",\n    \"amount\": 10.01\n  },\n  {\n    \"id\": 2,\n    \"description\": \"Woolworths\",\n    \"amount\": 11.01\n  },\n  {\n    \"id\": 3,\n    \"description\": \"Woolworths\",\n    \"amount\": 13.01\n  },\n  {\n    \"id\": 4,\n    \"description\": \"Woolworths\",\n    \"amount\": 16.01\n  },\n  {\n    \"id\": 5,\n    \"description\": \"Woolworths\",\n    \"amount\": 17.01\n  },\n  {\n    \"id\": 6,\n    \"description\": \"Woolworths\",\n    \"amount\": 18.01\n  },\n  {\n    \"id\": 7,\n    \"description\": \"Coles\",\n    \"amount\": 19.01\n  },\n  {\n    \"id\": 8,\n    \"description\": \"Coles\",\n    \"amount\": 20.01\n  },\n  {\n    \"id\": 9,\n    \"description\": \"Coles\",\n    \"amount\": 21.01\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": "SEQUENTIAL"
+    },
+    {
+      "uuid": "4b854ace-642b-408f-b94d-cc5b41de9e36",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "transactions/:transactionId",
+      "responses": [
+        {
+          "uuid": "9c03746c-4af5-484a-89d9-c4343df9b83c",
+          "body": "{\n  \"id\": 1,\n  \"address\": \"100 Collins Street\",\n  \"amount\": 10.01,\n  \"merchant\": \"Big W Ltd\",\n  \"timeOfTransaction\": \"10:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "decfb344-329f-44a2-ba12-400d59d48d2d",
+          "body": "{\n  \"id\": 2,\n  \"address\": \"100 Johnson Street\",\n  \"amount\": 11.01,\n  \"merchant\": \"Woolworths Ltd\",\n  \"timeOfTransaction\": \"11:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "2",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a93bd2a3-9273-47e0-b543-4a1d971048ff",
+          "body": "{\n  \"id\": 3,\n  \"address\": \"1 Smith Road\",\n  \"amount\": 13.01,\n  \"merchant\": \"Woolworths Ltd\",\n  \"timeOfTransaction\": \"1:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "03c597c9-f173-4825-8675-8de2920b891c",
+          "body": "{\n  \"id\": 4,\n  \"address\": \"2 Brick Lane\",\n  \"amount\": 16.01,\n  \"merchant\": \"Woolworths Ltd\",\n  \"timeOfTransaction\": \"14:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "9c5900dc-8d38-4b50-864a-943474687402",
+          "body": "{\n  \"id\": 5,\n  \"address\": \"20 Custard Road\",\n  \"amount\": 17.01,\n  \"merchant\": \"Woolworths Ltd\",\n  \"timeOfTransaction\": \"13:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "5",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2ffab1fd-fa83-436c-a53a-9525e9f91688",
+          "body": "{\n  \"id\": 6,\n  \"address\": \"100 Collins Street 2\",\n  \"amount\": 18.01,\n  \"merchant\": \"Woolworths Ltd\",\n  \"timeOfTransaction\": \"10:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "6",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "4e953245-6323-49fd-97ed-d0798efe19c7",
+          "body": "{\n  \"id\": 7,\n  \"address\": \"123 ABC STREET\",\n  \"amount\": 19.01,\n  \"merchant\": \"Coles Ltd\",\n  \"timeOfTransaction\": \"10:34\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "7",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a25a20db-1643-4c70-b446-cc0e37e46ec7",
+          "body": "{\n  \"id\": 8,\n  \"address\": \"1 Jones Street\",\n  \"amount\": 20.01,\n  \"merchant\": \"Coles Ltd\",\n  \"timeOfTransaction\": \"10:10\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "8",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "bec58b44-2706-4a7a-be60-5ef2787d1e70",
+          "body": "{\n  \"id\": 9,\n  \"address\": \"1 Bruce Road\",\n  \"amount\": 21.01,\n  \"merchant\": \"Coles Ltd\",\n  \"timeOfTransaction\": \"15:13\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "9",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "29145ae7-873b-4552-9036-4d7e90e3be12",
+          "body": "{\n  \"id\": 99,\n  \"address\": \"default response\",\n  \"amount\": 10000000.01,\n  \"merchant\": \"We have no idea where you spent your money and lots of it :(\",\n  \"timeOfTransaction\": \"00:00\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "transactionId",
+              "value": "d+",
+              "invert": true,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "9cddd7a3-2e91-4212-b24a-7588558888cf"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
