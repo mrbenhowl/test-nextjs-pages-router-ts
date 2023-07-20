@@ -3,6 +3,7 @@ import { ReactElement } from 'react'
 import Head from 'next/head'
 import Layout from '@/components/layout'
 import Anchor from '@/components/anchor'
+import * as styles from './transactions.css'
 
 type Props = {
   transactions: Transaction[]
@@ -11,6 +12,7 @@ type Props = {
 interface Transaction {
   description: string
   amount: number
+  id: number
 }
 
 const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
@@ -23,15 +25,28 @@ const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
         <h1>Transactions</h1>
       </header>
       <main>
-        <section>
-          {transactions.map((transaction, key: any) => {
-            return (
-              <div key={key}>
-                {transaction.description}, {transaction.amount}
-              </div>
-            )
-          })}
-
+        <section className={styles.layout}>
+          <div>
+            <h2>History</h2>
+            {transactions.map((transaction: any) => {
+              return (
+                <div
+                  data-id={transaction.id}
+                  key={transaction.id}
+                  onClick={() => {
+                    console.log('get transaction')
+                  }}
+                  className={styles.transaction}
+                >
+                  {transaction.description} {transaction.amount}
+                </div>
+              )
+            })}
+          </div>
+          <div>
+            <h2>Transaction</h2>
+            <div></div>
+          </div>
           <Anchor href='/'>Go back to the root</Anchor>
         </section>
       </main>
