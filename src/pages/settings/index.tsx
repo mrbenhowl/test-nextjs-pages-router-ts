@@ -1,3 +1,4 @@
+import Anchor from '@/components/anchor'
 import Head from 'next/head'
 
 export default function Settings () {
@@ -6,8 +7,12 @@ export default function Settings () {
       <Head>
         <title>Settings</title>
       </Head>
+      <header>
+        <h1>Settings</h1>
+      </header>
       <main>
-        <div>Settings</div>
+        <div>Stuff about settings</div>
+        <Anchor href='/'>Go back to the root</Anchor>
       </main>
     </>
   )

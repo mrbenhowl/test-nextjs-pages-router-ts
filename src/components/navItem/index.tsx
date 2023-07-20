@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { root } from './navItem.css'
+import * as styles from './navItem.css'
 
 type Props = {
   children: string
@@ -8,8 +8,10 @@ type Props = {
 
 export default function Nav ({ children, path }: Props) {
   return (
-    <div className={root}>
-      <Link href={path}>{children}</Link>
+    <div className={styles.root}>
+      <Link href={path} className={styles.link}>
+        {children}
+      </Link>
     </div>
   )
 }

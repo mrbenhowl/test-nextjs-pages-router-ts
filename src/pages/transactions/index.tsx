@@ -2,6 +2,7 @@ import type { NextPageWithLayout } from '../_app'
 import { ReactElement } from 'react'
 import Head from 'next/head'
 import Layout from '@/components/layout'
+import Anchor from '@/components/anchor'
 
 type Props = {
   transactions: Transaction[]
@@ -18,9 +19,11 @@ const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
       <Head>
         <title>Transactions</title>
       </Head>
+      <header>
+        <h1>Transactions</h1>
+      </header>
       <main>
-        <div>Transactions</div>
-        <div>
+        <section>
           {transactions.map((transaction, key: any) => {
             return (
               <div key={key}>
@@ -28,7 +31,9 @@ const Transactions: NextPageWithLayout<Props> = ({ transactions }: Props) => {
               </div>
             )
           })}
-        </div>
+
+          <Anchor href='/'>Go back to the root</Anchor>
+        </section>
       </main>
     </>
   )
@@ -41,7 +46,7 @@ Transactions.getLayout = function getLayout (page: ReactElement) {
 export default Transactions
 
 export async function getServerSideProps (): Promise<{
-  props: { transactions: Transaction[]}
+  props: { transactions: Transaction[] }
 }> {
   const res = await fetch(`http://localhost:4545/transactions`)
   const transactions = await res.json()

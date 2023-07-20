@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "mock": "mb --configfile mocks/imposters.ejs --loglevel debug"
+    "mock": "mb --configfile src/mocks/e2e/imposters.ejs --loglevel debug"
   },
   "dependencies": {
     "@testing-library/react": "^14.0.0",

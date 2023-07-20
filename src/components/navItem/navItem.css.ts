@@ -1,6 +1,14 @@
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/styles/theme.css'
 
 export const root = style({
-  border: '1px solid black',
-  padding: 10
+  padding: vars.space.small,
+  backgroundColor: vars.color.primaryColor
+})
+
+export const link = style({
+  color: vars.color.onPrimaryColor,
+  ':hover': {
+    color: vars.color.onPrimaryHoverColor
+  },
 })
