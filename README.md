@@ -13,14 +13,17 @@ Goals
 - [ ] add code coverage report
 - [ ] auth / rerouting if not logged-in
 
-vanilla-extract
-pnpm add -D @vanilla-extract/babel-plugin @vanilla-extract/css @vanilla-extract/next-plugin @vanilla-extract/webpack-plugin 
 
-mountebank
-pnpm add -D mountebank
-Add mock command to package.json
+# Steps
+
+## Vanilla-extract
+- pnpm add -D @vanilla-extract/babel-plugin @vanilla-extract/css @vanilla-extract/next-plugin @vanilla-extract/webpack-plugin 
+
+## Mountebank
+- pnpm add -D mountebank
+- Add mock command to package.json
   - "mock": "mb --configfile mocks/imposters.ejs --loglevel debug"
-Folder mocks
+- Add mocks directory
   imposters
     sampleImposter.ejs
   stubs
@@ -28,17 +31,5 @@ Folder mocks
   imposters.ejs
 
 
-jest
-pnpm add -D @testing-library/react jest
-
-pnpm add -D @testing-library/react ts-jest @jest/globals
-npx ts-jest config:init
-
-
-mock service worker for both client and server mocking
-https://github.com/vercel/next.js/pull/13731
-https://github.com/vercel/next.js/tree/canary/examples/with-msw
-https://www.codewithyou.com/blog/api-mocking-example-mock-service-worker
-npm install msw
-npx msw init ./public
-add request handler, mock browser and server - see mocks/unit
+## jest
+- pnpm add -D @testing-library/react jest
