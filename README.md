@@ -12,7 +12,7 @@ Goals
 - [ ] add playwright for e2e
 - [ ] add code coverage report
 - [ ] auth / rerouting if not logged-in
-- [ ] play with mockoon
+- [x] play with mockoon
 
 
 # Steps
