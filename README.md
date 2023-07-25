@@ -38,4 +38,5 @@ Goals
 - https://mockoon.com/tutorials/run-mock-api-anywhere-cli/
 
 ## jest
-- pnpm add -D @testing-library/react jest
+- pnpm add -D identity-obj-proxy 
+- pnpm add -D jest @testing-library/react @testing-library/jest-dom @testing-library/jest-dom jest-environment-jsdom
