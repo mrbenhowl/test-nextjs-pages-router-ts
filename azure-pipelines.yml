@@ -3,6 +3,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
+variables:
+  PNPM_CONFIG_CACHE: $(Pipeline.Workspace)/.pnpm-store
+
 trigger:
 - main
 
@@ -10,10 +14,26 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: Cache@2
+  inputs:
+    key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
+    path: $(PNPM_CONFIG_CACHE)
+  displayName: Cache pnpm
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    corepack enable
+    corepack prepare pnpm@latest-8 --activate
+    pnpm config set store-dir $(PNPM_CONFIG_CACHE)
+  displayName: "Setup pnpm"
+
+- script: |
+    pnpm install    
+  displayName: "pnpm install"
+  
+- script: 
+    pnpm lint
+  displayName: "Run: Linting"
+
+- script: 
+    pnpm test
+  displayName: "Run: Unit tests"

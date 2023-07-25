@@ -4,7 +4,7 @@
   "name": "Banking",
   "endpointPrefix": "",
   "latency": 0,
-  "port": 4002,
+  "port": 4001,
   "hostname": "",
   "folders": [
     {
