@@ -2,13 +2,14 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
+    jest: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.eslint.json', './tsconfig.json'],
   },
   extends: [
     'eslint:recommended',
@@ -51,28 +52,40 @@ module.exports = {
     'no-duplicate-imports': 'error',
     'no-console': 'warn',
   },
-  ignorePatterns: ['*.config.js', '.eslintrc.cjs', '*.setup.js', '*.test.js'],
+  ignorePatterns: ['*.config.js', '.eslintrc.cjs'],
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
+      // Linting for test files
+      files: ['*.test.js'],
+      extends: ['plugin:testing-library/react'],
+      plugins: ['jest'],
+    },
+    {
+      files: ['*.ts', '*.tsx', '*.test.js'],
       rules: {
-        // override "simple-import-sort" config
+        // Rule setting for sorting imports
         'simple-import-sort/imports': [
           'error',
           {
             groups: [
               // Packages `react` related packages come first.
-              ['^react', '^@?\\w'],
-              // Internal packages.
-              ['^(@|components)(/.*|$)'],
-              // Side effect imports.
-              ['^\\u0000'],
-              // Parent imports. Put `..` last.
-              ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-              // Other relative imports. Put same-folder imports and `.` last.
-              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-              // Style imports.
-              ['^.+\\.?(css)$'],
+              [
+                '^react',
+                '^@?\\w',
+                // Internal packages.
+                '^(@|components)(/.*|$)',
+                // Side effect imports.
+                '^\\u0000',
+                // Parent imports. Put `..` last.
+                '^\\.\\.(?!/?$)',
+                '^\\.\\./?$',
+                // Other relative imports. Put same-folder imports and `.` last.
+                '^\\./(?=.*/)(?!/?$)',
+                '^\\.(?!/?$)',
+                '^\\./?$',
+                // Style imports.
+                '^.+\\.?(css)$',
+              ],
             ],
           },
         ],
